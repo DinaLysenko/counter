@@ -1,0 +1,21 @@
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 280px;
+    font-size: 70px;
+    font-weight: bold;
+    height: 50%;
+    border: 1px solid dodgerblue;
+    background-color: dodgerblue;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.red {
+    color: red;
+}
+
+.default {
+    color: rgba(27, 27, 91, 0.8);
+}
