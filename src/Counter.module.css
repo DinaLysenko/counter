@@ -6,8 +6,8 @@
     font-size: 70px;
     font-weight: bold;
     height: 50%;
-    border: 1px solid dodgerblue;
-    background-color: dodgerblue;
+    border: 1px solid rgba(41, 232, 181, 0.68);
+    background-color: rgba(35, 35, 98, 0.98);;
     margin: 10px;
     border-radius: 5px;
 }
@@ -17,5 +17,5 @@
 }
 
 .default {
-    color: rgba(27, 27, 91, 0.8);
+    color: rgba(41, 232, 181, 0.68);
 }

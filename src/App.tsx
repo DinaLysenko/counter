@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {Counter} from "./Counter";
 import {Button} from "./Button";
+import s from './Button.module.css'
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     return (
         <div className={'app'}>
             <Counter count={count} maxCount={maxCount}/>
-            <div className={'button'}>
+            <div className={s.button}>
                 <Button name={'Inc'} onClick={onIncHandler} disabled={count===maxCount}/>
                 <Button name={'Reset'} onClick={onResHandler} disabled={count===minCount}/>
             </div>
