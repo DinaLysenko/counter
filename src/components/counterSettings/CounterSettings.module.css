@@ -1,0 +1,12 @@
+.settings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    min-width: 280px;
+    height: 50%;
+    border: 1px solid rgba(41, 232, 181, 0.68);
+    margin: 10px;
+    border-radius: 5px;
+}
