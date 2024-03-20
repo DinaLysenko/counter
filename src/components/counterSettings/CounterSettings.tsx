@@ -8,8 +8,6 @@ export const CounterSettings = () => {
         <div className={s.settings}>
             <ValueInput labelTitle={'max value:'}/>
             <ValueInput labelTitle={'min value:'}/>
-
-
         </div>
     );
 };

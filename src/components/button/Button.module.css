@@ -1,11 +1,12 @@
-.button {
+.buttonWrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    flex-wrap: wrap;
     align-items: center;
     border: 1px solid rgba(41, 232, 181, 0.68);
-    height: 40%;
-    min-width: 280px;
+    height: 30%;
+    width: 95%;
     margin: 10px;
     border-radius: 5px;
 }

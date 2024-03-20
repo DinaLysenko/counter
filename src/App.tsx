@@ -25,13 +25,13 @@ function App() {
         <div className={'app'}>
             <div className={'wrapper'}>
                 <CounterSettings/>
-                <div className={s.button}>
-                    <Button name={'Set'} onClick={onIncHandler} disabled={count === maxCount}/>
+                <div className={s.buttonWrapper}>
+                    <Button name={'Set'} onClick={onIncHandler} disabled={true}/>
                 </div>
             </div>
             <div className={'wrapper'}>
                 <Counter count={count} maxCount={maxCount}/>
-                <div className={s.button}>
+                <div className={s.buttonWrapper}>
                     <Button name={'Inc'} onClick={onIncHandler} disabled={count === maxCount}/>
                     <Button name={'Reset'} onClick={onResHandler}/>
                 </div>
