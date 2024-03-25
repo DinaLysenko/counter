@@ -1,24 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Counter.module.css'
+import {Button} from '../button/Button';
+import '../../App.css';
 
-type CounterType={
-    count: number
+type CounterType = {
+    startValue: number
     maxCount: number
+    countStartValue: number
+    countEndValue: number
 }
 
-export const Counter:React.FC<CounterType> = (props) => {
-    const{count, maxCount}=props
-    const countStyle=`${s.counter} ${count===maxCount? s.red:s.default}`
+export const Counter: React.FC<CounterType> = (props) => {
+    const {startValue, maxCount, countStartValue, countEndValue} = props
+
+    const countStyle = `${s.counter} ${startValue === maxCount ? s.red : s.default}`
+    const textMesageStyle = `${s.textMessage} ${s.counter}`
     return (
-            <div className={countStyle}>{count}</div>
+        <div className={'wrapper'}>
+            {startValue != countStartValue || maxCount != countEndValue ?
+                <div className={textMesageStyle}>{'enter values and press "set"'}</div> :
+                startValue === countStartValue ? <div className={countStyle}>{startValue}</div> :
+                    <div className={countStyle}>{countStartValue}</div>}
+            <div className={'buttonWrapper'}>
+                <Button name={'Inc'} onClick={() => {
+                }} disabled={startValue === maxCount}/>
+                <Button name={'Reset'} onClick={() => {
+                }}/>
+            </div>
+        </div>
     );
 };
-
-
-
-
-
-
 
 
 // import React, {useState} from 'react';

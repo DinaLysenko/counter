@@ -5,11 +5,23 @@
     align-items: center;
     flex-wrap: wrap;
 }
-
 .wrapper {
     width: 30%;
     height: 300px;
     border-radius: 10px;
     border: 5px solid rgba(41, 232, 181, 0.68);
 }
+.buttonWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 1px solid rgba(41, 232, 181, 0.68);
+    height: 30%;
+    width: 95%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
 

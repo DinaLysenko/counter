@@ -18,3 +18,7 @@
 .default {
     color: rgba(41, 232, 181, 0.68);
 }
+.textMessage{
+    font-size: 30px;
+    color: rgba(41, 232, 181, 0.68);
+}

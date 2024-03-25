@@ -1,44 +1,40 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Counter} from './components/counter/Counter';
-import {Button} from './components/button/Button';
-import s from './components/button/Button.module.css'
+
+
 import {CounterSettings} from './components/counterSettings/CounterSettings';
 
 
 function App() {
-    const minCount = 0
-    const maxCount = 5
-    let [count, setCount] = useState(minCount)
-    const onIncHandler = () => {
-        if (count < maxCount) {
-            setCount(count += 1)
-
-        }
-    }
-    const onResHandler = () => {
-        setCount(minCount)
-
+    let [startValue, setStartValue] = useState(0)
+    let [maxValue, setMaxValue] = useState(5)
+    const[disabledButton, setDisabledButton]=useState(true)
+    let [countStartValue, setCountStartValue]=useState(0)
+    let [countEndValue, setCountEndValue]=useState(0)
+    // const onIncHandler = () => {
+    //
+    //         setMaxValue(startValue += 1)
+    //
+    //
+    // }
+    // const onResHandler = () => {
+    //     setMaxValue(startValue)
+    //
+    // }
+    const onClickSetButton = () => {
+        setDisabledButton(!disabledButton)
+        setCountStartValue(startValue)
+        setCountEndValue(maxValue)
     }
 
     return (
         <div className={'app'}>
-            <div className={'wrapper'}>
-                <CounterSettings/>
-                <div className={s.buttonWrapper}>
-                    <Button name={'Set'} onClick={onIncHandler} disabled={true}/>
-                </div>
-            </div>
-            <div className={'wrapper'}>
-                <Counter count={count} maxCount={maxCount}/>
-                <div className={s.buttonWrapper}>
-                    <Button name={'Inc'} onClick={onIncHandler} disabled={count === maxCount}/>
-                    <Button name={'Reset'} onClick={onResHandler}/>
-                </div>
-            </div>
+            <CounterSettings startValue={startValue} maxValue={maxValue} setMaxValue={setMaxValue}
+                             setStartValue={setStartValue} disabledButton={disabledButton} setDisabledButton={setDisabledButton} onClickSetButton={onClickSetButton}/>
+            <Counter startValue={startValue} maxCount={maxValue} countStartValue={countStartValue} countEndValue={countEndValue}/>
         </div>
-    )
-        ;
+    );
 }
 
 export default App;
