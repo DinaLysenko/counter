@@ -1,12 +1,6 @@
-.label {
-    color: rgba(41, 232, 181, 0.68);
-    font-weight: bold;
-    font-size: 25px;
-    display: inline-block;
-}
 .input {
-    margin-left: 30px;
-    display: inline-block;
+    display: block;
+    width: 50%;
     font-size: 20px;
     outline: none;
     border: 3px solid rgba(41, 232, 181, 0.68);
