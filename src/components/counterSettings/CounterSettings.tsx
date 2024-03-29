@@ -10,29 +10,28 @@ type CounterSettingsType = {
     setMaxValue: (maxValue: number) => void
     setStartValue: (startValue: number) => void
     disabledButton: boolean
-    setDisabledButton: (disabledButton:boolean)=>void
-    onClickSetButton: ()=>void
+    onClickSetButton: () => void
 }
 export const CounterSettings = ({
                                     startValue,
                                     maxValue,
                                     setStartValue,
                                     setMaxValue,
-                                    disabledButton, setDisabledButton, onClickSetButton
+                                    disabledButton, onClickSetButton
                                 }: CounterSettingsType) => {
 
-
+    const settingsStyle = `${s.settings} ${startValue===maxValue ?s.errorValue : ''}`
 
     return (
         <div className={'wrapper'}>
-            <div className={s.settings}>
+            <div className={settingsStyle}>
                 <span className={s.spanTitle}>max value</span>
                 <InputValue value={maxValue} onChange={setMaxValue}/>
                 <span className={s.spanTitle}>start value</span>
                 <InputValue value={startValue} onChange={setStartValue}/>
             </div>
             <div className={'buttonWrapper'}>
-                <Button name={'Set'} onClick={onClickSetButton} disabled={maxValue === 5 && startValue === 0? disabledButton: !disabledButton}/>
+                <Button name={'Set'} onClick={onClickSetButton} disabled={(startValue<=0 && maxValue<=0) || startValue===maxValue?disabledButton:!disabledButton}/>
             </div>
         </div>
     )

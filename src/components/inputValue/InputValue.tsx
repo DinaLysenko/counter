@@ -10,9 +10,10 @@ export const InputValue = ({value, onChange}: InputValueType) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onChange(Number(e.currentTarget.value))
     }
-
+const inputStyle=`${s.input} ${value<0 ? s.errorValue: ''}`
+    console.log(value)
     return (
-        <input className={s.input} type={'number'} onChange={onChangeHandler} value={value}/>
+        <input className={inputStyle} type={'number'} onChange={onChangeHandler} value={value}/>
     );
 };
 

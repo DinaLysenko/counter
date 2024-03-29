@@ -8,31 +8,29 @@ import {CounterSettings} from './components/counterSettings/CounterSettings';
 
 function App() {
     let [startValue, setStartValue] = useState(0)
-    let [maxValue, setMaxValue] = useState(5)
-    const[disabledButton, setDisabledButton]=useState(true)
-    let [countStartValue, setCountStartValue]=useState(0)
-    let [countEndValue, setCountEndValue]=useState(0)
-    // const onIncHandler = () => {
-    //
-    //         setMaxValue(startValue += 1)
-    //
-    //
-    // }
-    // const onResHandler = () => {
-    //     setMaxValue(startValue)
-    //
-    // }
+    let [maxValue, setMaxValue] = useState(0)
+    const [disabledSetButton, setDisabledSetButton] = useState(true)
+    let [countValue, setCountValue] = useState('')
+
+
     const onClickSetButton = () => {
-        setDisabledButton(!disabledButton)
-        setCountStartValue(startValue)
-        setCountEndValue(maxValue)
+        setDisabledSetButton(!disabledSetButton)
+        setCountValue(startValue.toString())
     }
 
     return (
         <div className={'app'}>
-            <CounterSettings startValue={startValue} maxValue={maxValue} setMaxValue={setMaxValue}
-                             setStartValue={setStartValue} disabledButton={disabledButton} setDisabledButton={setDisabledButton} onClickSetButton={onClickSetButton}/>
-            <Counter startValue={startValue} maxCount={maxValue} countStartValue={countStartValue} countEndValue={countEndValue}/>
+            <CounterSettings startValue={startValue}
+                             maxValue={maxValue}
+                             setMaxValue={setMaxValue}
+                             setStartValue={setStartValue}
+                             disabledButton={disabledSetButton}
+                             onClickSetButton={onClickSetButton}/>
+            <Counter startValue={startValue}
+                     maxValue={maxValue}
+                     countValue={countValue}
+                     setCountValue={setCountValue}
+                     />
         </div>
     );
 }

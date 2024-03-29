@@ -18,3 +18,8 @@
     font-size: 25px;
 }
 
+.errorValue input{
+    border: 2px solid red;
+    background-color: rgba(245, 93, 93, 0.38);
+}
+

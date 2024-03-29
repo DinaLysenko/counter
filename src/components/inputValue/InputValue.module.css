@@ -9,3 +9,7 @@
     font-weight: bold;
     padding: 4px 0 4px 0;
 }
+.errorValue {
+    border: 2px solid red;
+    background-color: rgba(245, 93, 93, 0.38);
+}
