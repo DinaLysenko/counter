@@ -14,11 +14,11 @@ export const Counter = ({
                             maxValue,
                             countValue,
                             setCountValue,
-
                         }: CounterType) => {
 
     const countStyle = `${s.counter} ${+countValue === maxValue ? s.red : s.default}`
-    const textMessageStyle = `${s.textMessage} ${s.counter}`
+    const textMessageStyle = `${s.textMessage} ${s.counter} `
+    const textErrorStyle = `${s.textMessage} ${s.counter} ${s.errorText} `
     const incrementButtonHandler = () => {
         if (+countValue < maxValue) {
             setCountValue((+countValue + 1).toString())
@@ -31,11 +31,13 @@ export const Counter = ({
         <div className={'wrapper'}>
             {countValue
                 ?  <div className={countStyle}>{countValue}</div>:
-                <div className={textMessageStyle}>{'enter values and press "set"'}</div>
+                ( maxValue === startValue) ||(maxValue < 0 || startValue< 0)
+                    ? <div className={textErrorStyle}>{'Incorrect value!'}</div>:
+                    <div className={textMessageStyle}>{'enter values and press "set"'}</div>
 
             }
             <div className={'buttonWrapper'}>
-                <Button name={'Inc'} onClick={incrementButtonHandler} disabled={!countValue || +countValue === maxValue }/>
+            <Button name={'Inc'} onClick={incrementButtonHandler} disabled={!countValue || +countValue === maxValue }/>
                 <Button name={'Reset'} onClick={onClickResetButton} disabled={!countValue }/>
             </div>
         </div>

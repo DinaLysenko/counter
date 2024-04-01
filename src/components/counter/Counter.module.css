@@ -22,3 +22,7 @@
     font-size: 30px;
     color: rgba(41, 232, 181, 0.68);
 }
+.errorText {
+    color: red;
+    font-size: 40px;
+}

@@ -25,7 +25,10 @@ function App() {
                              setMaxValue={setMaxValue}
                              setStartValue={setStartValue}
                              disabledButton={disabledSetButton}
-                             onClickSetButton={onClickSetButton}/>
+                             onClickSetButton={onClickSetButton}
+                             setCountValue={setCountValue}
+                             setDisabledSetButton={setDisabledSetButton}
+                             />
             <Counter startValue={startValue}
                      maxValue={maxValue}
                      countValue={countValue}
