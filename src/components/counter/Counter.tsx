@@ -4,8 +4,8 @@ import {Button} from '../button/Button';
 import '../../App.css';
 
 type CounterType = {
-    startValue: number
-    maxValue: number
+    startValue: string
+    maxValue: string
     countValue: string
     setCountValue: (countValue: string) => void
 }
@@ -16,12 +16,12 @@ export const Counter = ({
                             setCountValue,
                         }: CounterType) => {
 
-    const countStyle = `${s.counter} ${+countValue === maxValue ? s.red : s.default}`
+    const countStyle = `${s.counter} ${countValue === maxValue ? s.red : s.default}`
     const textMessageStyle = `${s.textMessage} ${s.counter} `
     const textErrorStyle = `${s.textMessage} ${s.counter} ${s.errorText} `
     const incrementButtonHandler = () => {
-        if (+countValue < maxValue) {
-            setCountValue((+countValue + 1).toString())
+        if (countValue < maxValue) {
+            setCountValue((Number(countValue) + 1).toString())
         }
     }
     const onClickResetButton = () => {
@@ -30,15 +30,19 @@ export const Counter = ({
     return (
         <div className={'wrapper'}>
             {countValue
-                ?  <div className={countStyle}>{countValue}</div>:
-                ( maxValue === startValue) ||(maxValue < 0 || startValue< 0)
-                    ? <div className={textErrorStyle}>{'Incorrect value!'}</div>:
+                ? <div className={countStyle}>{countValue}</div> :
+                (maxValue === startValue) || (+maxValue < 0 || +startValue < 0)
+                    ? <div className={textErrorStyle}>{'Incorrect value!'}</div> :
                     <div className={textMessageStyle}>{'enter values and press "set"'}</div>
 
             }
             <div className={'buttonWrapper'}>
-            <Button name={'Inc'} onClick={incrementButtonHandler} disabled={!countValue || +countValue === maxValue }/>
-                <Button name={'Reset'} onClick={onClickResetButton} disabled={!countValue }/>
+                <Button name={'Inc'}
+                        onClick={incrementButtonHandler}
+                        disabled={!countValue || countValue === maxValue}/>
+                <Button name={'Reset'}
+                        onClick={onClickResetButton}
+                        disabled={!countValue}/>
             </div>
         </div>
     )
