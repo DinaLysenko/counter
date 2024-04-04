@@ -44,7 +44,7 @@ export const CounterSettings = ({
             <div className={'buttonWrapper'}>
                 <Button name={'Set'}
                         onClick={onClickSetButton}
-                        disabled={(+startValue < 0 || +maxValue < 0) || (startValue > maxValue) || (startValue === maxValue)
+                        disabled={(Number(startValue) < 0 || Number(maxValue) < 0) || (startValue > maxValue) || (startValue === maxValue)
                             ? disabledButton
                             : !disabledButton}/>
             </div>

@@ -25,13 +25,14 @@ export const Counter = ({
         }
     }
     const onClickResetButton = () => {
-        setCountValue(startValue.toString())
+        setCountValue(startValue)
     }
+
     return (
         <div className={'wrapper'}>
             {countValue
                 ? <div className={countStyle}>{countValue}</div> :
-                (maxValue === startValue) || (+maxValue < 0 || +startValue < 0)
+                (maxValue === startValue) || (Number(maxValue) < 0 || Number(startValue) < 0)
                     ? <div className={textErrorStyle}>{'Incorrect value!'}</div> :
                     <div className={textMessageStyle}>{'enter values and press "set"'}</div>
 
