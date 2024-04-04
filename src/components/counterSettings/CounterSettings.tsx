@@ -26,7 +26,9 @@ export const CounterSettings = ({
                                 }: CounterSettingsType) => {
 
     const settingsStyle = `${s.settings} ${startValue === maxValue ? s.errorValue : ''}`
-
+    const errorValueSetButton = (Number(startValue) < 0 || Number(maxValue) < 0)
+        || (Number(startValue) > Number(maxValue))
+        || (startValue === maxValue)
     return (
         <div className={'wrapper'}>
             <div className={settingsStyle}>
@@ -44,7 +46,7 @@ export const CounterSettings = ({
             <div className={'buttonWrapper'}>
                 <Button name={'Set'}
                         onClick={onClickSetButton}
-                        disabled={(Number(startValue) < 0 || Number(maxValue) < 0) || (startValue > maxValue) || (startValue === maxValue)
+                        disabled={errorValueSetButton
                             ? disabledButton
                             : !disabledButton}/>
             </div>

@@ -17,10 +17,15 @@ export const Counter = ({
                         }: CounterType) => {
 
     const countStyle = `${s.counter} ${countValue === maxValue ? s.red : s.default}`
+
     const textMessageStyle = `${s.textMessage} ${s.counter} `
+
     const textErrorStyle = `${s.textMessage} ${s.counter} ${s.errorText} `
+
+    const errorValue = (maxValue === startValue) || (Number(maxValue) < 0 || Number(startValue) < 0)
     const incrementButtonHandler = () => {
-        if (countValue < maxValue) {
+        debugger
+        if (Number(countValue) < Number(maxValue)) {
             setCountValue((Number(countValue) + 1).toString())
         }
     }
@@ -32,7 +37,7 @@ export const Counter = ({
         <div className={'wrapper'}>
             {countValue
                 ? <div className={countStyle}>{countValue}</div> :
-                (maxValue === startValue) || (Number(maxValue) < 0 || Number(startValue) < 0)
+                errorValue
                     ? <div className={textErrorStyle}>{'Incorrect value!'}</div> :
                     <div className={textMessageStyle}>{'enter values and press "set"'}</div>
 

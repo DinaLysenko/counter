@@ -5,24 +5,16 @@ import {CounterSettings} from './components/counterSettings/CounterSettings';
 
 
 function App() {
-    let [startValue, setStartValue] = useState<string>(getInitialStartValueStoredState())
-    let [maxValue, setMaxValue] = useState<string>(getInitialMaxValueStoredState())
-    const [disabledSetButton, setDisabledSetButton] = useState(true)
-    let [countValue, setCountValue] = useState<string>(getInitialStartValueStoredState())
-
-    function getInitialStartValueStoredState() {
-        let initialStartValue = localStorage.getItem('initialStartValue');
+    function getInitialValueStoredState(key:string) {
+        let initialStartValue = localStorage.getItem(key);
         if (initialStartValue) {
             return JSON.parse(initialStartValue)
         }
     }
-
-    function getInitialMaxValueStoredState() {
-        let initialMaxValue = localStorage.getItem('initialMaxValue');
-        if (initialMaxValue) {
-            return JSON.parse(initialMaxValue)
-        }
-    }
+    let [startValue, setStartValue] = useState<string>(getInitialValueStoredState('initialStartValue'))
+    let [maxValue, setMaxValue] = useState<string>(getInitialValueStoredState('initialMaxValue'))
+    const [disabledSetButton, setDisabledSetButton] = useState(true)
+    let [countValue, setCountValue] = useState<string>(getInitialValueStoredState('initialStartValue'))
 
     const onClickSetButton = () => {
         setDisabledSetButton(!disabledSetButton)
