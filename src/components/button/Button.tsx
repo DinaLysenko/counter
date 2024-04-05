@@ -1,4 +1,3 @@
-import React from 'react';
 import s from './Button.module.css'
 
 type ButtonType = {
@@ -7,17 +6,21 @@ type ButtonType = {
     disabled?: boolean
 
 }
-export const Button: React.FC<ButtonType> = (props) => {
-    const {name, onClick, disabled} = props
-    const onClickHandler = () => {
-        onClick()
-    }
-    const buttonClassName = `${s.btn} ${disabled ?  s.disabled : ''}`
-        
+export const Button = ({
+                           name,
+                           onClick,
+                           disabled
+                       }: ButtonType) => {
+    const buttonClassName = `${s.btn} ${disabled ? s.disabled : ''}`
+
     return (
-        <div >
-            <button className={buttonClassName} onClick={onClickHandler} disabled={disabled}>{name}</button>
-        </div>
+        <button
+            className={buttonClassName}
+            onClick={onClick}
+            disabled={disabled}
+        >
+            {name}
+        </button>
     );
 };
 
